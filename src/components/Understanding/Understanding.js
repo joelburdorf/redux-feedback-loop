@@ -5,43 +5,51 @@ import { connect } from 'react-redux';
 
 class Understanding extends Component {
     state = {
-        understanding: ''
+        understanding: '',
     }
 
-    handleChange = (event, typeofChange) => {
+    handleChange = (propertyName, event) => {
+        console.log('logging from understanding handleChange', event.target.value);
         this.setState({
-            feeling: event.target.value
+            understanding: event.target.value
         },
         );
     }
-    buttonClick = () => {
-
+    buttonClick = (event) => {
+        event.preventDefault();
         this.props.dispatch({
             type: 'SET_UNDERSTANDING',
-            payload: this.state.understanding
+            payload: this.state
         })
         this.props.history.push('/supported')
     }
 
-    render() {
-      
 
+    render() {
         return (
             <div>
                 <h1>How well are you understanding the content?</h1>
 
                 <form>
-                    <fieldset id="group2">
-
                         <label>I'm totally lost.</label>
-                        <input type='radio' value='value1' name='group2'></input>
-                        <input type='radio' value='value2' name='group2'></input>
-                        <input type='radio' value='value3' name='group2'></input>
-                        <input type='radio' value='value4' name='group2'></input>
-                        <input type='radio' value='value5' name='group2'></input>
+                        <input required type="radio" id="1" name="understanding" value="1"
+                            onChange={(event) => this.handleChange('understanding', event)} />
+                                <label >1</label>
+                        <input required type="radio" id="2" name="understanding" value="2"
+                            onChange={(event) => this.handleChange('understanding', event)} />
+                                <label >2</label>
+                        <input required type="radio" id="3" name="understanding" value="3"
+                            onChange={(event) => this.handleChange('understanding', event)} />
+                                <label >3</label>
+                        <input required type="radio" id="4" name="understanding" value="4"
+                            onChange={(event) => this.handleChange('understanding', event)} />
+                                <label >4</label>
+                        <input required type="radio" id="5" name="understanding" value="5"
+                            onChange={(event) => this.handleChange('understanding', event)} />
+                            <label >5</label>
                         <label>I've got this!</label>
                         <button onClick={this.buttonClick}>Next</button>
-                    </fieldset>
+                   
                 </form>
                 
             </div>

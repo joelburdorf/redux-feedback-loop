@@ -4,22 +4,22 @@ import { connect } from 'react-redux';
 
 class HowYaFeelin extends Component {
     state = {
-        feeling: ''
+        feeling: '',
     }
 
-    handleChange = (event, typeofChange) => {
+    handleChange = (propertyName, event) => {
+        console.log('logging from handleChange', event.target.value);
         this.setState({
             feeling: event.target.value
         },
-        
         );
     }
 
-    buttonClick = () => {
-
+    buttonClick = (event) => {
+        event.preventDefault();
         this.props.dispatch({
             type: 'SET_FEELING',
-            payload: this.state.feeling
+            payload: this.state
         })
         this.props.history.push('/understanding')
 
@@ -30,19 +30,27 @@ class HowYaFeelin extends Component {
             <div>
                 <h1>How are you feeling today?</h1>
                 
-                <form>
-                    <fieldset id="group1">
+                <form onSubmit={this.buttonClick}>
                         
-                        <label>I'm very stressed.</label>
-                        <input type='radio' value='value1' name='group1'></input> 
-                        <input type='radio' value='value2' name='group1'></input> 
-                        <input type='radio' value='value3' name='group1'></input> 
-                        <input type='radio' value='value4' name='group1'></input> 
-                        <input type='radio' value='value5' name='group1'></input> 
-                        <label>I'm feeling great!</label>
-                        <button onClick={this.buttonClick}>Next</button>
+                    <label>I'm very stressed.</label>
+                    <input required type="radio" id="1" name="feeling" value="1"
+                        onChange={(event) => this.handleChange('feeling', event)} />
+                    <label >1</label>
+                    <input required type="radio" id="2" name="feeling" value="2"
+                        onChange={(event) => this.handleChange('feeling', event)} />
+                    <label >2</label>
+                    <input required type="radio" id="3" name="feeling" value="3"
+                        onChange={(event) => this.handleChange('feeling', event)} />
+                    <label >3</label>
+                    <input required type="radio" id="4" name="feeling" value="4"
+                        onChange={(event) => this.handleChange('feeling', event)} />
+                    <label >4</label>
+                    <input required type="radio" id="5" name="feeling" value="5"
+                        onChange={(event) => this.handleChange('feeling', event)} />
+                    <label >5</label>
+                    <label>I'm feeling great!</label>
+                    <button onClick={this.buttonClick}>Next</button>
                         
-                    </fieldset>
                 </form>
                 
             </div>

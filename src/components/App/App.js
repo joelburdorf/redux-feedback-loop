@@ -15,27 +15,27 @@ import Verify from '../Verify/Verify';
 
 class App extends Component {
 
-  // DOM is ready
-  componentDidMount() { 
-    this.showFeedback();
-  }
+  
+  // componentDidMount() { 
+  //   this.showFeedback();
+  // }
 
-  showFeedback = () => {
-    console.log('in showFeedback because component App did mount');
-    axios({
-      method: 'GET',
-      url: '/feedback'
-    }).then((response) => {
-      console.log('this is response in showFeedback', response.data);
-      this.props.dispatch({
-        type: 'SET_FEEDBACK',
-        payload: response.data
-      })
-    }).catch((err) => {
-      console.log('cannot GET feedback');
+  // showFeedback = () => {
+  //   console.log('in showFeedback because component App did mount');
+  //   axios({
+  //     method: 'GET',
+  //     url: '/feedback'
+  //   }).then((response) => {
+  //     console.log('this is response in showFeedback', response.data);
+  //     this.props.dispatch({
+  //       type: 'SET_FEEDBACK',
+  //       payload: response.data
+  //     })
+  //   }).catch((err) => {
+  //     console.log('cannot GET feedback');
 
-    })
-  }
+  //   })
+  // }
 
   render() {
     return (
@@ -46,14 +46,14 @@ class App extends Component {
           
         </header>
         <br/>
-        <p>{JSON.stringify(this.props.reduxState.feedbackReducer)}</p>
+        {/* <p>{JSON.stringify(this.props.reduxState.feedbackReducer)}</p> */}
         <Router>
 
           <Route exact path="/" component={HowYaFeelin} />
-          <Route exact path="/understanding" component={Understanding} />
-          <Route exact path="/supported" component={Supported} />
-          <Route exact path="/comment" component={Comment} />
-          <Route exact path="/verify" component={Verify} />
+          <Route path="/understanding" component={Understanding} />
+          <Route path="/supported" component={Supported} />
+          <Route path="/comment" component={Comment} />
+          <Route path="/verify" component={Verify} />
 
         </Router>
         

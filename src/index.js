@@ -7,47 +7,47 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
-const feedbackReducer = (state = [], action) => {
-    console.log('hello says feedbackReducer', action.payload);
-    if (action.type === 'SET_FEEDBACK') {
+// const feedbackReducer = (state = [], action) => {
+//     console.log('hello says feedbackReducer', action.payload);
+//     if (action.type === 'SET_FEEDBACK') {
+//         return action.payload
+//     };
+//     return state;
+// }
+
+const feelingReducer = (state = null, action) => {
+    //console.log('hello says feelingReducer', action.payload);
+    if (action.type === 'SET_FEELING') {
         return action.payload
     };
     return state;
 }
 
-const feelingReducer = (state = [], action) => {
-    console.log('hello says feelingReducer', action.payload);
-    if (action.type === 'SET_FEELING') {
-        return [...state, action.payload];
-    };
-    return state;
-}
-
-const understandingReducer = (state = [], action) => {
-    console.log('hello says understandingReducer', action.payload);
+const understandingReducer = (state = null, action) => {
+    //console.log('hello says understandingReducer', action.payload);
     if (action.type === 'SET_UNDERSTANDING') {
-        return [...state, action.payload];
+        return action.payload
     };
     return state;
 }
-const supportReducer = (state = [], action) => {
-    console.log('hello says supportReducer', action.payload);
+const supportReducer = (state = null, action) => {
+    //console.log('hello says supportReducer', action.payload);
     if (action.type === 'SET_SUPPORT') {
-        return [...state, action.payload];
+        return action.payload
     };
     return state;
 }
-const commentReducer = (state = [], action) => {
-    console.log('hello says commentReducer', action.payload);
+const commentReducer = (state = null, action) => {
+    //console.log('hello says commentReducer', action.payload);
     if (action.type === 'SET_COMMENT') {
-        return [...state, action.payload];
+        return action.payload
     };
     return state;
 }
 
 const storeInstance = createStore(
     combineReducers({
-        feedbackReducer,
+        // feedbackReducer,
         feelingReducer,
         understandingReducer,
         supportReducer,
