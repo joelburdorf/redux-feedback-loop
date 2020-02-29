@@ -11,6 +11,7 @@ class HowYaFeelin extends Component {
         this.setState({
             feeling: event.target.value
         },
+        
         );
     }
 

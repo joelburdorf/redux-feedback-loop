@@ -16,26 +16,26 @@ import Verify from '../Verify/Verify';
 class App extends Component {
 
   // DOM is ready
-  // componentDidMount() { // react Component method
-  //   this.showFeedback();
-  // }
+  componentDidMount() { 
+    this.showFeedback();
+  }
 
-  // showFeedback = () => {
-  //   console.log('in showFeedback because component App did mount');
-  //   axios({
-  //     method: 'GET',
-  //     url: '/feedback'
-  //   }).then((response) => {
-  //     console.log('this is response in showFeedback', response.data);
-  //     this.props.dispatch({
-  //       type: 'SET_FEEDBACK',
-  //       payload: response.data
-  //     })
-  //   }).catch((err) => {
-  //     console.log('cannot GET feedback');
+  showFeedback = () => {
+    console.log('in showFeedback because component App did mount');
+    axios({
+      method: 'GET',
+      url: '/feedback'
+    }).then((response) => {
+      console.log('this is response in showFeedback', response.data);
+      this.props.dispatch({
+        type: 'SET_FEEDBACK',
+        payload: response.data
+      })
+    }).catch((err) => {
+      console.log('cannot GET feedback');
 
-  //   })
-  // }
+    })
+  }
 
   render() {
     return (
