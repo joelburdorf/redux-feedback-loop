@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 
 
 class Comment extends Component {
+    state = {
+        comments: ''
+    }
 
+    handleChange = (event, typeofChange) => {
+        this.setState({
+            support: event.target.value
+        },
+        );
+    }
+    submitComment = () => {
+        console.log('in submitComment');
+        this.props.dispatch({
+            type: 'SET_COMMENT',
+            payload: this.state.comments
+        })
+        this.props.history.push('/verify')
+    }
+
+    
     render() {
         return (
             <div>
@@ -13,10 +34,17 @@ class Comment extends Component {
                    <br></br>
                    <input></input>
                 </form>
+                <button onClick={this.submitComment}>Next</button>
                 
             </div>
         )
     }
 }
 
-export default Comment;
+
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+export default connect(putReduxStateOnProps)(Comment);
+

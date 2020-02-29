@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
-import Supported from '../Supported/Supported';
+import { connect } from 'react-redux';
+// import Supported from '../Supported/Supported';
 
 
 class Understanding extends Component {
+    state = {
+        understanding: ''
+    }
+
+    handleChange = (event, typeofChange) => {
+        this.setState({
+            feeling: event.target.value
+        },
+        );
+    }
+    buttonClick = () => {
+
+        this.props.dispatch({
+            type: 'SET_UNDERSTANDING',
+            payload: this.state.understanding
+        })
+        this.props.history.push('/supported')
+    }
 
     render() {
+      
+
         return (
             <div>
                 <h1>How well are you understanding the content?</h1>
@@ -19,13 +40,17 @@ class Understanding extends Component {
                         <input type='radio' value='value4' name='group2'></input>
                         <input type='radio' value='value5' name='group2'></input>
                         <label>I've got this!</label>
-
+                        <button onClick={this.buttonClick}>Next</button>
                     </fieldset>
                 </form>
-                <Supported />
+                
             </div>
         )
     }
 }
 
-export default Understanding;
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+export default connect(putReduxStateOnProps)(Understanding);

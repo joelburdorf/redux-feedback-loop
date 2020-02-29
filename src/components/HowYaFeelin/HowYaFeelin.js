@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
-import Understanding from '../Understanding/Understanding';
+import { connect } from 'react-redux';
 
 
 class HowYaFeelin extends Component {
+    state = {
+        feeling: ''
+    }
+
+    handleChange = (event, typeofChange) => {
+        this.setState({
+            feeling: event.target.value
+        },
+        );
+    }
+
+    buttonClick = () => {
+
+        this.props.dispatch({
+            type: 'SET_FEELING',
+            payload: this.state.feeling
+        })
+        this.props.history.push('/understanding')
+
+    }
 
     render() {
         return (
@@ -19,13 +39,20 @@ class HowYaFeelin extends Component {
                         <input type='radio' value='value4' name='group1'></input> 
                         <input type='radio' value='value5' name='group1'></input> 
                         <label>I'm feeling great!</label>
+                        <button onClick={this.buttonClick}>Next</button>
                         
                     </fieldset>
                 </form>
-                <Understanding />
+                
             </div>
         )
     }
 }
 
-export default HowYaFeelin;
+// export default HowYaFeelin;
+
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+export default connect(putReduxStateOnProps)(HowYaFeelin);

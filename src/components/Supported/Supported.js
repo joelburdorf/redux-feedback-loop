@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
-import Comment from '../Comment/Comment';
+import { connect } from 'react-redux';
 
 
 class Supported extends Component {
+    state = {
+        support: ''
+    }
 
+    handleChange = (event, typeofChange) => {
+        this.setState({
+            support: event.target.value
+        },
+        );
+    }
+    buttonClick = () => {
+
+        this.props.dispatch({
+            type: 'SET_SUPPORT',
+            payload: this.state.support
+        })
+        this.props.history.push('/comment')
+    }
     render() {
         return (
             <div>
@@ -19,13 +36,18 @@ class Supported extends Component {
                         <input type='radio' value='value4' name='group3'></input>
                         <input type='radio' value='value5' name='group3'></input>
                         <label>I feel supported!</label>
-
+                        <button onClick={this.buttonClick}>Next</button>
                     </fieldset>
                 </form>
-                <Comment />
+               
             </div>
         )
     }
 }
 
-export default Supported;
+
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+export default connect(putReduxStateOnProps)(Supported);
