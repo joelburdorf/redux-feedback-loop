@@ -3,6 +3,8 @@ import axios from 'axios';
 // import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
+import HowYaFeelin from '../HowYaFeelin/HowYaFeelin';
+
 
 class App extends Component {
 
@@ -22,7 +24,6 @@ class App extends Component {
         type: 'SET_FEEDBACK',
         payload: response.data
       })
-
     }).catch((err) => {
       console.log('cannot GET feedback');
 
@@ -39,12 +40,12 @@ class App extends Component {
         </header>
         <br/>
         <p>{JSON.stringify(this.props.reduxState.feedbackReducer)}</p>
+        <HowYaFeelin />
+        
       </div>
     );
   }
 }
-
-
 
 const putReduxStateOnProps = (reduxState) => ({
   reduxState,
