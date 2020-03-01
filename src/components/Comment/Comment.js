@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 class Comment extends Component {
     state = {
-        comments: ''
+        comment: ''
     }
 
     handleChange = (propertyName, event) => {
         console.log('logging from support handleChange', event.target.value);
         this.setState({
-            comments: event.target.value
+            comment: event.target.value
         },
         );
     }

@@ -10,11 +10,11 @@ class Verify extends Component {
             method: 'POST',
             url: '/feedback',
             data: {
-                // feeling: this.props.reduxState.feelingReducer,
-                // understanding: this.props.reduxState.understandingReducer,
-                // support: this.props.reduxState.supportReducer,
-                // comment: this.props.reduxState.this.props.reduxState.commentReducer,
-            }
+                feeling: this.props.reduxState.feelingReducer.feeling,
+                understanding: this.props.reduxState.understandingReducer.understanding,
+                support: this.props.reduxState.supportReducer.support,
+                comment: this.props.reduxState.commentReducer.comment,
+            },
         }).then((response) => {
             console.log(response);
             this.props.history.push('/thanks');

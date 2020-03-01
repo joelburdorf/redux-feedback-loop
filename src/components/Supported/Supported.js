@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Supported extends Component {
 
     state = {
-        support: '',
+        support: 0,
     }
 
     handleChange = (propertyName, event) => {

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+
+//GET is not being used
 router.get('/', (req, res) => {
     console.log('GET /feedback');
     pool.query('SELECT * from "feedback";').then((result) => {
@@ -12,18 +14,23 @@ router.get('/', (req, res) => {
     });
 })
 
+// POST
+// Adds a new feedback to the DB
+// Request body must be a feedback object with a task/name/status
 router.post('/', (req, res) => {
-    res.sendStatus(200);
-    let queryString = `INSERT INTO "feedback"("feeling", "understanding",
+    let newFeedback = req.body;
+    console.log('Adding newFeedback to Db', newFeedback);
+    let queryText = `INSERT INTO "feedback"("feeling", "understanding",
                       "support", "comments")VALUES($1, $2, $3, $4);`;
-    let values = [req.body.feeling, req.body.understanding, req.body.support, req.body.comments]
-    pool.query(queryString, values).then((result) => {
-        console.log('result', result);
-        res.sendStatus(200);
+    let values = [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comment]
+    pool.query(queryText, values).then((result) => {
+        console.log('result from router POST', result);
+        res.sendStatus(201);
     }).catch((error) => {
-        console.log('Router POST error', error);
+        console.log('Error from router POST', error);
         res.sendStatus(500);
     })
 })
 
 module.exports = router;
+

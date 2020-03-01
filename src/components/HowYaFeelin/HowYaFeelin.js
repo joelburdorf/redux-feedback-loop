@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class HowYaFeelin extends Component {
     state = {
-        feeling: '',
+        feeling: 0,
     }
 
     handleChange = (propertyName, event) => {

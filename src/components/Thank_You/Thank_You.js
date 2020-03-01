@@ -6,6 +6,7 @@ class Thank_You extends Component {
     render() {
         return (
             <div>
+                <h1>Submission Successful!</h1>
                 <h1>Thank you for your feedback!</h1>
             </div>
         )

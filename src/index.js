@@ -15,7 +15,7 @@ import logger from 'redux-logger';
 //     return state;
 // }
 
-const feelingReducer = (state = null, action) => {
+const feelingReducer = (state = [], action) => {
     //console.log('hello says feelingReducer', action.payload);
     if (action.type === 'SET_FEELING') {
         return action.payload
@@ -23,21 +23,21 @@ const feelingReducer = (state = null, action) => {
     return state;
 }
 
-const understandingReducer = (state = null, action) => {
+const understandingReducer = (state = [], action) => {
     //console.log('hello says understandingReducer', action.payload);
     if (action.type === 'SET_UNDERSTANDING') {
         return action.payload
     };
     return state;
 }
-const supportReducer = (state = null, action) => {
+const supportReducer = (state = [], action) => {
     //console.log('hello says supportReducer', action.payload);
     if (action.type === 'SET_SUPPORT') {
         return action.payload
     };
     return state;
 }
-const commentReducer = (state = null, action) => {
+const commentReducer = (state = [], action) => {
     //console.log('hello says commentReducer', action.payload);
     if (action.type === 'SET_COMMENT') {
         return action.payload
