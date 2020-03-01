@@ -8,21 +8,27 @@ class HowYaFeelin extends Component {
     }
     //set state of feeling value from chosen radio input
     handleChange = (propertyName, event) => {
-        console.log('logging from handleChange', event.target.value);
-        this.setState({
-            feeling: event.target.value
-        },
+            console.log('logging from handleChange', event.target.value);
+            this.setState({
+                feeling: event.target.value
+         },
         );
     }
     //on buttonClick dispatch feeling to redux
+    //add alert if no input from user. require input to move forward
     buttonClick = (event) => {
+        //console.log('from feelings buttonClick event', this.state.feeling);
         event.preventDefault();
+        if (this.state.feeling === 0) {
+            alert('Please Make A Selection');
+        } else {
         this.props.dispatch({
             type: 'SET_FEELING',
             payload: this.state
         })
         //next route to understanding Component
         this.props.history.push('/understanding')
+        }
     }
     //render to DOM radio input options to be used to set state for feeling
     //add button

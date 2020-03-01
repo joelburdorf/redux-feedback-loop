@@ -14,14 +14,20 @@ class Understanding extends Component {
         );
     }
     //on buttonClick dispatch understanding to redux
+    //add alert if no input from user. require input to move forward
     buttonClick = (event) => {
+        //console.log('from feelings buttonClick event', this.state.understanding);
         event.preventDefault();
+        if (this.state.understanding === 0) {
+            alert('Please Make A Selection');
+        } else {
         this.props.dispatch({
             type: 'SET_UNDERSTANDING',
             payload: this.state
         })
         //next route to supported Component
         this.props.history.push('/supported')
+        }
     }
     //render to DOM radio input options to be used to set state for understanding
     //add button

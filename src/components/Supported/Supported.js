@@ -15,14 +15,20 @@ class Supported extends Component {
         );
     }
     //on buttonClick dispatch support to redux
+    //add alert if no input from user. require input to move forward
     buttonClick = (event) => {
+        //console.log('from feelings buttonClick event', this.state.support);
         event.preventDefault();
+        if (this.state.support === 0) {
+            alert('Please Make A Selection');
+        } else {
         this.props.dispatch({
             type: 'SET_SUPPORT',
             payload: this.state
         })
         //next route to comment Component
         this.props.history.push('/comment')
+        }
     }
     //render to DOM radio input options to be used to set state for support
     //add button
