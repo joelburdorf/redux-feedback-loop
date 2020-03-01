@@ -19,7 +19,6 @@ class App extends Component {
   // componentDidMount() { 
   //   this.showFeedback();
   // }
-
   // showFeedback = () => {
   //   console.log('in showFeedback because component App did mount');
   //   axios({
@@ -33,7 +32,6 @@ class App extends Component {
   //     })
   //   }).catch((err) => {
   //     console.log('cannot GET feedback');
-
   //   })
   // }
 
