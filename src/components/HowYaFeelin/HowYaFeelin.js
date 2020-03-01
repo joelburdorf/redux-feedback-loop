@@ -6,7 +6,7 @@ class HowYaFeelin extends Component {
     state = {
         feeling: 0,
     }
-
+    //set state of feeling value from chosen radio input
     handleChange = (propertyName, event) => {
         console.log('logging from handleChange', event.target.value);
         this.setState({
@@ -14,24 +14,23 @@ class HowYaFeelin extends Component {
         },
         );
     }
-
+    //on buttonClick dispatch feeling to redux
     buttonClick = (event) => {
         event.preventDefault();
         this.props.dispatch({
             type: 'SET_FEELING',
             payload: this.state
         })
+        //next route to understanding Component
         this.props.history.push('/understanding')
-
     }
-
+    //render to DOM radio input options to be used to set state for feeling
+    //add button
     render() {
         return (
             <div>
                 <h1>How are you feeling today?</h1>
-                
                 <form onSubmit={this.buttonClick}>
-                        
                     <label>I'm very stressed.</label>
                     <input required type="radio" id="1" name="feeling" value="1"
                         onChange={(event) => this.handleChange('feeling', event)} />
@@ -50,15 +49,11 @@ class HowYaFeelin extends Component {
                     <label >5</label>
                     <label>I'm feeling great!</label>
                     <button onClick={this.buttonClick}>Next</button>
-                        
                 </form>
-                
             </div>
         )
     }
 }
-
-// export default HowYaFeelin;
 
 const putReduxStateOnProps = (reduxState) => ({
     reduxState

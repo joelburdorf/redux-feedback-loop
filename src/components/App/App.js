@@ -12,11 +12,10 @@ import Comment from '../Comment/Comment';
 import Verify from '../Verify/Verify';
 import Thank_You from '../Thank_You/Thank_You';
 
-
-
 class App extends Component {
 
-  
+  // I useded this GET early on to verify that my APP was talking with the server/router/Db
+
   // componentDidMount() { 
   //   this.showFeedback();
   // }
@@ -39,6 +38,8 @@ class App extends Component {
   // }
 
   render() {
+    //add a header that will remain on each page
+    //add routes for each page
     return (
       <div className="App">
         <header className="App-header">
@@ -49,7 +50,6 @@ class App extends Component {
         <br/>
         {/* <p>{JSON.stringify(this.props.reduxState.feedbackReducer)}</p> */}
         <Router>
-
           <Route exact path="/" component={HowYaFeelin} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/supported" component={Supported} />
@@ -57,7 +57,6 @@ class App extends Component {
           <Route path="/verify" component={Verify} />
           <Route path="/thanks" component={Thank_You} />
         </Router>
-        
       </div>
     );
   }

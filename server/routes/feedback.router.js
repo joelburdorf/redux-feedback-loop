@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-
 //GET is not being used
 router.get('/', (req, res) => {
     console.log('GET /feedback');
@@ -16,7 +15,9 @@ router.get('/', (req, res) => {
 
 // POST
 // Adds a new feedback to the DB
-// Request body must be a feedback object with a task/name/status
+// Request body must be a feedback object with feeling/understanding/support/comment
+//sanitise inputs
+//send status back to client side
 router.post('/', (req, res) => {
     let newFeedback = req.body;
     console.log('Adding newFeedback to Db', newFeedback);

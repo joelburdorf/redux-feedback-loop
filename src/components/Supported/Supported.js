@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 
 
 class Supported extends Component {
-
     state = {
         support: 0,
     }
-
+    //set state of feeling value from chosen radio input
     handleChange = (propertyName, event) => {
         console.log('logging from support handleChange', event.target.value);
         this.setState({
@@ -15,21 +14,23 @@ class Supported extends Component {
         },
         );
     }
+    //on buttonClick dispatch support to redux
     buttonClick = (event) => {
         event.preventDefault();
         this.props.dispatch({
             type: 'SET_SUPPORT',
             payload: this.state
         })
+        //next route to comment Component
         this.props.history.push('/comment')
     }
-
+    //render to DOM radio input options to be used to set state for support
+    //add button
     render() {
         return (
             <div>
                 <h1>How well are you being supported?</h1>
-
-              <form>
+                <form>
                     <label>I feel abandoned.</label>
                     <input required type="radio" id="1" name="support" value="1"
                     onChange={(event) => this.handleChange('support', event)} />
@@ -49,7 +50,6 @@ class Supported extends Component {
                     <label>I feel supported!</label>
                     <button onClick={this.buttonClick}>Next</button>
                 </form>
-               
             </div>
         )
     }

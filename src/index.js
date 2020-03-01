@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
+//      currently not using this feedbackReducer. It's for the GET to Db
+
 // const feedbackReducer = (state = [], action) => {
 //     console.log('hello says feedbackReducer', action.payload);
 //     if (action.type === 'SET_FEEDBACK') {
