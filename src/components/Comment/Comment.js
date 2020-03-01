@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
-
 class Comment extends Component {
     state = {
         comments: ''
     }
 
-    handleChange = (event, typeofChange) => {
+    handleChange = (propertyName, event) => {
+        console.log('logging from support handleChange', event.target.value);
         this.setState({
-            support: event.target.value
+            comment: event.target.value
         },
         );
     }
-    submitComment = () => {
-        console.log('in submitComment');
+
+    buttonClick = (event) => {
+        event.preventDefault();
         this.props.dispatch({
             type: 'SET_COMMENT',
-            payload: this.state.comments
+            payload: this.state
         })
         this.props.history.push('/verify')
     }
 
+   
     
     render() {
         return (
@@ -32,9 +33,9 @@ class Comment extends Component {
                 <form>
                    <label>Comment</label>
                    <br></br>
-                   <input></input>
+                    <input required type="text" name="comment" onChange={(event) => this.handleChange('comment', event)} />
                 </form>
-                <button onClick={this.submitComment}>Next</button>
+                <button onClick={this.buttonClick}>Next</button>
                 
             </div>
         )

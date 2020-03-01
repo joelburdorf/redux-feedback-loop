@@ -3,41 +3,51 @@ import { connect } from 'react-redux';
 
 
 class Supported extends Component {
+
     state = {
-        support: ''
+        support: '',
     }
 
-    handleChange = (event, typeofChange) => {
+    handleChange = (propertyName, event) => {
+        console.log('logging from support handleChange', event.target.value);
         this.setState({
             support: event.target.value
         },
         );
     }
-    buttonClick = () => {
-
+    buttonClick = (event) => {
+        event.preventDefault();
         this.props.dispatch({
             type: 'SET_SUPPORT',
-            payload: this.state.support
+            payload: this.state
         })
         this.props.history.push('/comment')
     }
+
     render() {
         return (
             <div>
                 <h1>How well are you being supported?</h1>
 
-                <form>
-                    <fieldset id="group3">
-
-                        <label>I feel abandoned.</label>
-                        <input type='radio' value='value1' name='group3'></input>
-                        <input type='radio' value='value2' name='group3'></input>
-                        <input type='radio' value='value3' name='group3'></input>
-                        <input type='radio' value='value4' name='group3'></input>
-                        <input type='radio' value='value5' name='group3'></input>
-                        <label>I feel supported!</label>
-                        <button onClick={this.buttonClick}>Next</button>
-                    </fieldset>
+              <form>
+                    <label>I feel abandoned.</label>
+                    <input required type="radio" id="1" name="support" value="1"
+                    onChange={(event) => this.handleChange('support', event)} />
+                    <label >1</label>
+                        <input required type="radio" id="2" name="support" value="2"
+                    onChange={(event) => this.handleChange('support', event)} />
+                    <label >2</label>
+                        <input required type="radio" id="3" name="support" value="3"
+                    onChange={(event) => this.handleChange('support', event)} />
+                    <label >3</label>
+                        <input required type="radio" id="4" name="support" value="4"
+                    onChange={(event) => this.handleChange('support', event)} />
+                    <label >4</label>
+                        <input required type="radio" id="5" name="support" value="5"
+                    onChange={(event) => this.handleChange('support', event)} />
+                    <label >5</label>
+                    <label>I feel supported!</label>
+                    <button onClick={this.buttonClick}>Next</button>
                 </form>
                
             </div>
