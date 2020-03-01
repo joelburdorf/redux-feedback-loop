@@ -10,6 +10,7 @@ import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
 import Comment from '../Comment/Comment';
 import Verify from '../Verify/Verify';
+import Thank_You from '../Thank_You/Thank_You';
 
 
 
@@ -54,7 +55,7 @@ class App extends Component {
           <Route path="/supported" component={Supported} />
           <Route path="/comment" component={Comment} />
           <Route path="/verify" component={Verify} />
-
+          <Route path="/thanks" component={Thank_You} />
         </Router>
         
       </div>

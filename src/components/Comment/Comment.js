@@ -9,7 +9,7 @@ class Comment extends Component {
     handleChange = (propertyName, event) => {
         console.log('logging from support handleChange', event.target.value);
         this.setState({
-            comment: event.target.value
+            comments: event.target.value
         },
         );
     }
@@ -23,8 +23,6 @@ class Comment extends Component {
         this.props.history.push('/verify')
     }
 
-   
-    
     render() {
         return (
             <div>
