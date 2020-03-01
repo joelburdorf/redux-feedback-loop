@@ -14,7 +14,7 @@ import Thank_You from '../Thank_You/Thank_You';
 
 class App extends Component {
 
-  // I useded this GET early on to verify that my APP was talking with the server/router/Db
+  // I useded this GET early on to verify that my App was talking with the server/router/Db
 
   // componentDidMount() { 
   //   this.showFeedback();

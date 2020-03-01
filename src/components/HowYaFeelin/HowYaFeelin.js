@@ -38,19 +38,19 @@ class HowYaFeelin extends Component {
                 <h1>How are you feeling today?</h1>
                 <form onSubmit={this.buttonClick}>
                     <label>I'm very stressed.</label>
-                    <input required type="radio" id="1" name="feeling" value="1"
+                    <input required type="radio" name="feeling" value="1"
                         onChange={(event) => this.handleChange('feeling', event)} />
                     <label >1</label>
-                    <input required type="radio" id="2" name="feeling" value="2"
+                    <input required type="radio" name="feeling" value="2"
                         onChange={(event) => this.handleChange('feeling', event)} />
                     <label >2</label>
-                    <input required type="radio" id="3" name="feeling" value="3"
+                    <input required type="radio" name="feeling" value="3"
                         onChange={(event) => this.handleChange('feeling', event)} />
                     <label >3</label>
-                    <input required type="radio" id="4" name="feeling" value="4"
+                    <input required type="radio" name="feeling" value="4"
                         onChange={(event) => this.handleChange('feeling', event)} />
                     <label >4</label>
-                    <input required type="radio" id="5" name="feeling" value="5"
+                    <input required type="radio" name="feeling" value="5"
                         onChange={(event) => this.handleChange('feeling', event)} />
                     <label >5</label>
                     <label>I'm feeling great!</label>

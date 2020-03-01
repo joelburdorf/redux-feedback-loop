@@ -38,19 +38,19 @@ class Supported extends Component {
                 <h1>How well are you being supported?</h1>
                 <form>
                     <label>I feel abandoned.</label>
-                    <input required type="radio" id="1" name="support" value="1"
+                    <input required type="radio" name="support" value="1"
                     onChange={(event) => this.handleChange('support', event)} />
                     <label >1</label>
-                        <input required type="radio" id="2" name="support" value="2"
+                        <input required type="radio" name="support" value="2"
                     onChange={(event) => this.handleChange('support', event)} />
                     <label >2</label>
-                        <input required type="radio" id="3" name="support" value="3"
+                        <input required type="radio" name="support" value="3"
                     onChange={(event) => this.handleChange('support', event)} />
                     <label >3</label>
-                        <input required type="radio" id="4" name="support" value="4"
+                        <input required type="radio" name="support" value="4"
                     onChange={(event) => this.handleChange('support', event)} />
                     <label >4</label>
-                        <input required type="radio" id="5" name="support" value="5"
+                        <input required type="radio" name="support" value="5"
                     onChange={(event) => this.handleChange('support', event)} />
                     <label >5</label>
                     <label>I feel supported!</label>

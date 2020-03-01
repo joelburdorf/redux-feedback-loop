@@ -37,19 +37,19 @@ class Understanding extends Component {
                 <h1>How well are you understanding the content?</h1>
                 <form>
                     <label>I'm totally lost.</label>
-                    <input required type="radio" id="1" name="understanding" value="1"
+                    <input required type="radio" name="understanding" value="1"
                         onChange={(event) => this.handleChange('understanding', event)} />
                             <label >1</label>
-                    <input required type="radio" id="2" name="understanding" value="2"
+                    <input required type="radio" name="understanding" value="2"
                         onChange={(event) => this.handleChange('understanding', event)} />
                             <label >2</label>
-                    <input required type="radio" id="3" name="understanding" value="3"
+                    <input required type="radio" name="understanding" value="3"
                         onChange={(event) => this.handleChange('understanding', event)} />
                             <label >3</label>
-                    <input required type="radio" id="4" name="understanding" value="4"
+                    <input required type="radio" name="understanding" value="4"
                         onChange={(event) => this.handleChange('understanding', event)} />
                             <label >4</label>
-                    <input required type="radio" id="5" name="understanding" value="5"
+                    <input required type="radio" name="understanding" value="5"
                         onChange={(event) => this.handleChange('understanding', event)} />
                         <label >5</label>
                     <label>I've got this!</label>
