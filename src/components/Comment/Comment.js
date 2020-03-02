@@ -32,7 +32,8 @@ class Comment extends Component {
                 <form>
                    <label>Comment</label>
                    <br></br>
-                    <input required type="text" name="comment" onChange={(event) => this.handleChange('comment', event)} />
+                    <textarea rows="5" cols="50" onChange={(event) => this.handleChange('comment', event)}></textarea>
+                    {/* <input required type="text" name="comment" onChange={(event) => this.handleChange('comment', event)} /> */}
                 </form>
                 <button onClick={this.buttonClick}>Next</button>
             </div>
